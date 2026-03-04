@@ -43,20 +43,20 @@
     "blueimp-tmpl": "3"
   },
   "devDependencies": {
-    "eslint": "7",
+    "@eslint/eslintrc": "3",
+    "@eslint/js": "10",
+    "eslint": "10",
     "eslint-config-blueimp": "2",
-    "eslint-config-prettier": "8",
-    "eslint-plugin-jsdoc": "36",
-    "eslint-plugin-prettier": "4",
-    "prettier": "2",
-    "stylelint": "13",
-    "stylelint-config-prettier": "8",
-    "stylelint-config-recommended": "5"
+    "eslint-config-prettier": "10",
+    "eslint-plugin-jsdoc": "62",
+    "eslint-plugin-prettier": "5",
+    "prettier": "3",
+    "stylelint": "17",
+    "stylelint-config-recommended": "18"
   },
   "stylelint": {
     "extends": [
-      "stylelint-config-recommended",
-      "stylelint-config-prettier"
+      "stylelint-config-recommended"
     ],
     "ignoreFiles": [
       "css/*.min.css",
@@ -64,20 +64,6 @@
       "test/vendor/*"
     ]
   },
-  "eslintConfig": {
-    "extends": [
-      "blueimp",
-      "plugin:jsdoc/recommended",
-      "plugin:prettier/recommended"
-    ],
-    "env": {
-      "browser": true
-    }
-  },
-  "eslintIgnore": [
-    "*.min.js",
-    "test/vendor"
-  ],
   "prettier": {
     "arrowParens": "avoid",
     "proseWrap": "always",

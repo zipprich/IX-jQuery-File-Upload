@@ -99,6 +99,7 @@
                   throw new Error();
                 }
               } catch (e) {
+                void e;
                 response = undefined;
               }
               // The complete callback returns the

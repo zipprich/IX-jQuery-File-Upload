@@ -1,6 +1,6 @@
 'use strict'
 
-/* global browser, Promise */
+/* global browser */
 
 const cmds = require('wdio-screen-commands')
 

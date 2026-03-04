@@ -27,6 +27,28 @@
 })(function ($) {
   'use strict';
 
+  var toString = Object.prototype.toString;
+
+  // jQuery 4 removed $.isArray and $.type.
+  if (!$.isArray) {
+    $.isArray =
+      Array.isArray ||
+      function (obj) {
+        return toString.call(obj) === '[object Array]';
+      };
+  }
+  if (!$.type) {
+    $.type = function (obj) {
+      if (obj === null) {
+        return String(obj);
+      }
+      if (typeof obj === 'object' || typeof obj === 'function') {
+        return toString.call(obj).slice(8, -1).toLowerCase();
+      }
+      return typeof obj;
+    };
+  }
+
   // Detect file input support, based on
   // https://viljamis.com/2012/file-upload-support-on-mobile/
   $.support.fileInput = !(

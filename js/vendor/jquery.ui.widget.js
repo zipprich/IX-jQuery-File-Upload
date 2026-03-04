@@ -19,7 +19,23 @@
     factory(window.jQuery);
   }
 })(function ($) {
-  ('use strict');
+  'use strict';
+
+  var toString = Object.prototype.toString;
+
+  // jQuery 4 removed $.isArray and $.isFunction.
+  if (!$.isArray) {
+    $.isArray =
+      Array.isArray ||
+      function (obj) {
+        return toString.call(obj) === '[object Array]';
+      };
+  }
+  if (!$.isFunction) {
+    $.isFunction = function (obj) {
+      return typeof obj === 'function';
+    };
+  }
 
   $.ui = $.ui || {};
 
@@ -772,8 +788,8 @@
       var effectName = !options
         ? method
         : options === true || typeof options === 'number'
-        ? defaultEffect
-        : options.effect || defaultEffect;
+          ? defaultEffect
+          : options.effect || defaultEffect;
 
       options = options || {};
       if (typeof options === 'number') {

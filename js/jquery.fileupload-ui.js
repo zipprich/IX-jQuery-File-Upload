@@ -199,9 +199,9 @@
         } else {
           template = that
             ._renderDownload(files)
-            [that.options.prependFiles ? 'prependTo' : 'appendTo'](
-              that.options.filesContainer
-            );
+            [
+              that.options.prependFiles ? 'prependTo' : 'appendTo'
+            ](that.options.filesContainer);
           that._forceReflow(template);
           deferred = that._addFinishedDeferreds();
           that._transition(template).done(function () {
@@ -252,9 +252,9 @@
         } else if (data.errorThrown !== 'abort') {
           data.context = that
             ._renderUpload(data.files)
-            [that.options.prependFiles ? 'prependTo' : 'appendTo'](
-              that.options.filesContainer
-            )
+            [
+              that.options.prependFiles ? 'prependTo' : 'appendTo'
+            ](that.options.filesContainer)
             .data('data', data);
           that._forceReflow(data.context);
           deferred = that._addFinishedDeferreds();
@@ -415,6 +415,7 @@
             [type, name, url].join(':')
           );
         } catch (ignore) {
+          void ignore;
           // Ignore exceptions
         }
       });
