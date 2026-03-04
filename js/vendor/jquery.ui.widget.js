@@ -24,12 +24,10 @@
   var toString = Object.prototype.toString;
   var isArray =
     Array.isArray ||
-    $.isArray ||
     function (obj) {
       return toString.call(obj) === '[object Array]';
     };
   var isFunction =
-    $.isFunction ||
     function (obj) {
       return typeof obj === 'function';
     };
