@@ -40,6 +40,8 @@
 })(function ($, tmpl) {
   'use strict';
 
+  var isArray = Array.isArray || $.isArray;
+
   $.blueimp.fileupload.prototype._specialOptions.push(
     'filesContainer',
     'uploadTemplateId',
@@ -83,7 +85,7 @@
 
       // Callback to retrieve the list of files from the server response:
       getFilesFromResponse: function (data) {
-        if (data.result && $.isArray(data.result.files)) {
+        if (data.result && isArray(data.result.files)) {
           return data.result.files;
         }
         return [];

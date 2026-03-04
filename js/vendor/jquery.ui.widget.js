@@ -22,20 +22,19 @@
   'use strict';
 
   var toString = Object.prototype.toString;
-
-  // jQuery 4 removed $.isArray and $.isFunction.
-  if (!$.isArray) {
-    $.isArray =
-      Array.isArray ||
-      function (obj) {
-        return toString.call(obj) === '[object Array]';
-      };
-  }
-  if (!$.isFunction) {
-    $.isFunction = function (obj) {
+  var isArray =
+    Array.isArray ||
+    $.isArray ||
+    function (obj) {
+      return toString.call(obj) === '[object Array]';
+    };
+  var isFunction =
+    $.isFunction ||
+    function (obj) {
       return typeof obj === 'function';
     };
-  }
+
+  // jQuery 4 removed $.isArray and $.isFunction.
 
   $.ui = $.ui || {};
 
@@ -103,7 +102,7 @@
       base = $.Widget;
     }
 
-    if ($.isArray(prototype)) {
+    if (isArray(prototype)) {
       prototype = $.extend.apply(null, [{}].concat(prototype));
     }
 
@@ -147,7 +146,7 @@
     // inheriting from
     basePrototype.options = $.widget.extend({}, basePrototype.options);
     $.each(prototype, function (prop, value) {
-      if (!$.isFunction(value)) {
+      if (!isFunction(value)) {
         proxiedPrototype[prop] = value;
         return;
       }
@@ -289,7 +288,7 @@
               );
             }
 
-            if (!$.isFunction(instance[options]) || options.charAt(0) === '_') {
+            if (!isFunction(instance[options]) || options.charAt(0) === '_') {
               return $.error(
                 "no such method '" +
                   options +
@@ -771,7 +770,7 @@
 
       this.element.trigger(event, data);
       return !(
-        ($.isFunction(callback) &&
+        (isFunction(callback) &&
           callback.apply(this.element[0], [event].concat(data)) === false) ||
         event.isDefaultPrevented()
       );

@@ -26,6 +26,8 @@
 })(function ($) {
   'use strict';
 
+  var isArray = Array.isArray || $.isArray;
+
   // Helper variable to create unique names for the transport iframes:
   var counter = 0,
     jsonAPI = $,
@@ -83,7 +85,7 @@
               '"></iframe>'
           ).on('load', function () {
             var fileInputClones,
-              paramNames = $.isArray(options.paramName)
+              paramNames = isArray(options.paramName)
                 ? options.paramName
                 : [options.paramName];
             iframe.off('load').on('load', function () {
