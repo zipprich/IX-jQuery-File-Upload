@@ -27,10 +27,9 @@
     function (obj) {
       return toString.call(obj) === '[object Array]';
     };
-  var isFunction =
-    function (obj) {
-      return typeof obj === 'function';
-    };
+  var isFunction = function (obj) {
+    return typeof obj === 'function';
+  };
 
   // jQuery 4 removed $.isArray and $.isFunction.
 

@@ -40,7 +40,7 @@
 })(function ($, tmpl) {
   'use strict';
 
-  var isArray = Array.isArray || $.isArray;
+  var isArray = Array.isArray;
 
   $.blueimp.fileupload.prototype._specialOptions.push(
     'filesContainer',

@@ -41,7 +41,6 @@
             var addParamChar = /\?/.test(s.url) ? '&' : '?';
             /**
              * Callback wrapper function
-             *
              * @param {number} status HTTP status code
              * @param {string} statusText HTTP status text
              * @param {object} [responses] Content-type specific responses

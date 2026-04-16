@@ -30,7 +30,6 @@ class FileUpload {
   }
   /**
    * Opens the file upload form.
-   *
    * @param {number} [timeout] Wait timeout
    */
   async open(timeout) {
@@ -39,7 +38,6 @@ class FileUpload {
   }
   /**
    * Uploads files.
-   *
    * @param {Array<string>} files Files to upload
    * @param {number} [timeout] Wait timeout
    */
@@ -58,7 +56,6 @@ class FileUpload {
   }
   /**
    * Deletes uploaded files.
-   *
    * @param {number} [timeout] Wait timeout
    */
   async delete(timeout) {
